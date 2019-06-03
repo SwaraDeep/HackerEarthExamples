@@ -1,0 +1,69 @@
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+
+/*
+ * uncomment this if you want to read input.
+//imports for BufferedReader
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+//import for Scanner and other utility classes
+import java.util.*;
+*/
+
+// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
+import java.util.Scanner;
+public class TestClass {
+    public static char a[];
+    public static void main(String args[] ) throws Exception {
+        Scanner s = new Scanner(System.in);
+        int cases = s.nextInt();
+        while(cases != 0){
+        String word = s.nextLine();
+        a=word.toCharArray();
+        int i,j,occurs=a.len(),letters=0;
+        for(i =0;i<a.length();i++){
+            for(j =0;j<a.len();j++){
+                if(a[i]==a[j]){
+                    occurs--;
+                    newStr(a[i]);
+                }
+            }
+        }
+        primeOrNot(occurs, newStr);
+        cases--;
+        }
+    }
+    void newStr(char x){
+        char[] newWord;
+        bool found;
+        newWord[0] = a[0];
+        for(int i =0;i<newWord.len();i++){
+            if(x==newWord[i]){
+                found = True;
+            }
+        }
+        if(!found){
+            newWord[newWord.length()] = x;
+        }
+    }
+    void primeOrNot(int occ, String string){
+        char[] finalword = string;
+        int len = finalword.len();
+        int fact1 = 0, fact2 = 0;
+        for(int i = 1;i<occ;i++){
+           if(occ%i == 0){
+               fact1++;
+           } 
+        }
+        for(int i = 1;i<len;i++){
+           if(occ%i == 0){
+               fact2++;
+           } 
+        }
+        if(fact1<=2 && fact2<=2){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+    }
+}
